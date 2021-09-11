@@ -49,7 +49,7 @@ for i = 1:size
         [a, b],
         (0.0, 10.0)
     )
-    sol = solve(prob, DPRKN6(), saveat=0.1) # Sympletic integrator
+    sol = solve(prob, DPRKN6(), saveat=0.01) # Sympletic integrator
 
     sol_u = zeros(length(sol), 4)
     for i in 1:length(sol)
@@ -67,5 +67,5 @@ for i = 1:size
         "vx" => sol_u[:,3],
         "vy" => sol_u[:,4]
     )
-    writenc(df, "data/kepler2d_$i.nc")
+    writenc(df, "data2/kepler2d_$i.nc")
 end
